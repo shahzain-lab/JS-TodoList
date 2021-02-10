@@ -14,7 +14,8 @@ Event-Listener
 =============
 */
 
-todoBtn.addEventListener('click',todoSubmit );
+todoBtn.addEventListener('click',todoSubmit);
+todoList.addEventListener('click',deleteCheck)
 
 
 /*
@@ -38,15 +39,29 @@ function todoSubmit(e){
    todoDiv.appendChild(newTodo)
    //
    const completeBtn = document.createElement('button');
-   completeBtn.innerHTML = '<i class="fa fa-trash"></i>';
+   completeBtn.innerHTML = '<i class="fas fa-check"></i>';
    completeBtn.classList.add('complete-btn')
    todoDiv.appendChild(completeBtn);
    //
    const trashedBtn = document.createElement('button');
    trashedBtn.classList.add('trash-btn');
-   trashedBtn.innerHTML = '<i class="fas fa-check"></i>';
+   trashedBtn.innerHTML = '<i class="fas fa-trash"></i>';
    todoDiv.appendChild(trashedBtn);
    //
    todoList.appendChild(todoDiv)
     todoInput.value = ""
 };
+
+
+function deleteCheck(e){
+    let item = e.target
+    if(item.classList[0] === 'trash-btn'){
+        const todo = item.parentElement;
+        todo.classList.add('fall')
+        todo.remove()
+    }
+    if(item.classList[0] === 'complete-btn'){
+        const todo = item.parentElement;
+        todo.classList.toggle('checked')
+    }
+}
