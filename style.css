@@ -100,3 +100,10 @@ form button:hover{
     text-decoration: line-through;
     opacity: .4;
 }
+
+
+.fall{
+    transition: .5s;
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
