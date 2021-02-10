@@ -27,16 +27,41 @@ form button{
     font-size: 2rem;
     border: none;
     background: #fff;
+    outline: none;
 }
 
 form button{
     color: #d88771;
     cursor: pointer;
     transition: all .3s ease;
-    outline: none;
 }
 
 form button:hover{
     color: #fff;
     background:#d88771;
+}
+
+.todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list{
+    min-width: 30%;
+    list-style: none;
+}
+
+.todo{
+    background: #ffff;
+    margin: .5rem;
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo li{
+    flex: 1;
 }
