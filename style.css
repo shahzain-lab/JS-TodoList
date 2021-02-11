@@ -125,5 +125,16 @@ select{
 select{
     color: #ff6f47;
     width: 10rem;
+    padding: .7rem;
     cursor: pointer;
+}
+
+.select::after{
+    content: "\25BC";
+    position: absolute;
+    background: #ff6f47;
+    top: 0;
+    right: 0;
+    padding: .7rem;
+    pointer-events: none;
 }

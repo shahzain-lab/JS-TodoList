@@ -6,6 +6,7 @@ Selector
 const todoBtn = document.querySelector('.todoBtn');
 const todoInput = document.querySelector('.todo-input');
 const todoList = document.querySelector('.todo-list');
+const todoSelect = document.querySelector('.filter-todo');
 
 /*
 =============
@@ -15,6 +16,7 @@ Event-Listener
 
 todoBtn.addEventListener('click', todoSubmit);
 todoList.addEventListener('click', deleteCheck)
+todoSelect.addEventListener('click', filterTodo)
 /*
 =============
 Functions
@@ -64,4 +66,30 @@ function deleteCheck(e){
         const todo = item.parentElement;
         todo.classList.toggle('checked');
     }
+};
+
+
+function filterTodo(e){
+    const todos = todoList.childNodes;
+    todos.forEach((todo) => {
+        switch(e.target.value){
+            case 'all':
+                todo.style.display = "flex";
+                break;
+                case 'completed':
+                    if(todo.classList.contains('checked')){
+                        todo.style.display = "flex"
+                    }else{
+                        todo.style.display = "none"
+                    }
+                     break;
+                    case 'uncompleted':
+                        if(!todo.classList.contains('checked')){
+                            todo.style.display = "flex"
+                        } else {
+                            todo.style.display = "none"
+                        }
+                        break;
+        }
+    })
 }
