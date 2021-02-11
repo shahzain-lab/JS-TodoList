@@ -13,7 +13,8 @@ Event-Listener
 =============
 */
 
-todoBtn.addEventListener('click', todoSubmit)
+todoBtn.addEventListener('click', todoSubmit);
+todoList.addEventListener('click', deleteCheck)
 /*
 =============
 Functions
@@ -46,4 +47,21 @@ function todoSubmit(e){
 
     //update value
     todoInput.value = ""
+};
+
+function deleteCheck(e){
+    const item = e.target;
+    //delete
+    if(item.classList.contains('trash-btn')){
+        const todo = item.parentElement;
+        todo.classList.add('fall');
+        todo.addEventListener('transitionend', () => {
+            todo.remove();
+        })
+    }
+    //check
+    if(item.classList.contains('complete-btn')){
+        const todo = item.parentElement;
+        todo.classList.toggle('checked');
+    }
 }
